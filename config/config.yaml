@@ -1,0 +1,115 @@
+mqtt:
+  broker: "localhost"
+  port: 1883
+  username: ""
+  password: ""
+  tls: false
+  keepalive: 60
+  publish_interval_seconds: 1.0
+  topics:
+    machine_telemetry:
+      M01: "factory/machine1/telemetry"
+      M02: "factory/machine2/telemetry"
+      M03: "factory/machine3/telemetry"
+    machine_status:
+      M01: "factory/machine1/status"
+      M02: "factory/machine2/status"
+      M03: "factory/machine3/status"
+    production: "factory/production/telemetry"
+    alerts: "factory/alerts"
+
+factory:
+  name: "Smart Factory Virtual Line 1"
+  simulation_interval_seconds: 1.0
+  machines:
+    - id: "M01"
+      name: "CNC Milling Machine"
+      type: "machining"
+      nominal:
+        temperature: 65.0       # °C
+        vibration: 2.5          # mm/s
+        current: 8.5            # A
+        voltage: 230.0          # V
+        rpm: 1800.0             # RPM
+        pressure: 6.0           # bar
+        power: 3.2              # kW
+        cycle_time: 12.0        # sec
+      noise:
+        temperature: 0.4
+        vibration: 0.12
+        current: 0.15
+        voltage: 1.2
+        rpm: 12.0
+        pressure: 0.08
+        power: 0.06
+      thresholds:
+        temperature: { warning: 78.0, failure: 90.0 }
+        vibration: { warning: 4.2, failure: 6.5 }
+        current: { warning: 12.0, failure: 16.0 }
+        rpm_min: { warning: 1550.0, failure: 1200.0 }
+    - id: "M02"
+      name: "Hydraulic Stamping Press"
+      type: "forming"
+      nominal:
+        temperature: 70.0
+        vibration: 3.2
+        current: 12.0
+        voltage: 230.0
+        rpm: 1200.0
+        pressure: 8.5
+        power: 5.4
+        cycle_time: 15.0
+      noise:
+        temperature: 0.5
+        vibration: 0.18
+        current: 0.25
+        voltage: 1.5
+        rpm: 15.0
+        pressure: 0.12
+        power: 0.10
+      thresholds:
+        temperature: { warning: 82.0, failure: 95.0 }
+        vibration: { warning: 5.0, failure: 7.5 }
+        current: { warning: 16.0, failure: 22.0 }
+        rpm_min: { warning: 1000.0, failure: 800.0 }
+    - id: "M03"
+      name: "Robotic Welding Station"
+      type: "assembly"
+      nominal:
+        temperature: 75.0
+        vibration: 1.8
+        current: 15.0
+        voltage: 230.0
+        rpm: 950.0
+        pressure: 5.0
+        power: 4.8
+        cycle_time: 10.0
+      noise:
+        temperature: 0.6
+        vibration: 0.10
+        current: 0.30
+        voltage: 1.8
+        rpm: 10.0
+        pressure: 0.10
+        power: 0.12
+      thresholds:
+        temperature: { warning: 88.0, failure: 105.0 }
+        vibration: { warning: 3.5, failure: 5.5 }
+        current: { warning: 20.0, failure: 27.0 }
+        rpm_min: { warning: 800.0, failure: 600.0 }
+
+health_weights:
+  temperature: 0.20
+  vibration: 0.25
+  current: 0.15
+  rpm: 0.15
+  pressure: 0.10
+  power: 0.15
+
+risk_thresholds:
+  low_max: 0.30
+  medium_max: 0.60
+  high_max: 0.85
+
+alerts:
+  cooldown_seconds: 10

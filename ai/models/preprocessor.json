@@ -1,0 +1,26 @@
+{
+  "feature_names": [
+    "temperature",
+    "vibration",
+    "current",
+    "rpm",
+    "pressure",
+    "power"
+  ],
+  "means": {
+    "temperature": 70.0,
+    "vibration": 2.5,
+    "current": 11.833333333333334,
+    "rpm": 1316.6666666666667,
+    "pressure": 6.5,
+    "power": 4.466666666666668
+  },
+  "stds": {
+    "temperature": 12.0,
+    "vibration": 1.5,
+    "current": 3.5,
+    "rpm": 356.68224265054494,
+    "pressure": 1.8,
+    "power": 1.2
+  }
+}
