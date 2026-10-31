@@ -154,7 +154,13 @@ Live monitoring of CNC Milling, Hydraulic Stamping Press, and Robotic Welding ma
 
 <img width="100%" alt="Real-Time Machine Health Monitoring" src="https://github.com/user-attachments/assets/938d93ee-600f-4750-865b-adb825c8b4fa" />
 
-### 3. AI-Based Machine Analytics & Telemetry
+### 3. AI-Based Machine Analytics & Telemetry## Live Project Dashboard
+
+https://digitaltwin-smartfactory-1.onrender.com/
+
+## Project Documentation
+
+AI-Driven Digital Twin for Smart Factory Operations
 
 Real-time temperature and vibration waveforms with AI-driven machine health trend analysis.
 
